@@ -93,4 +93,7 @@ def tournamentWinner(competitions, results):
 			
 	return currentBestTeam
 
-print ("winner is:",tournamentWinner(competitions,results))
+
+print ("input competitions:",competitions)
+print ("input results:",results)
+print ("output winner is:",tournamentWinner(competitions,results))
