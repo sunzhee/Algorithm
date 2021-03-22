@@ -21,11 +21,12 @@ Sample Output
 
 '''
 
-
+array = [12, 3, 1, 2, -6, 5, -8, 6]
+targetSum = 0
 
 
 #T=O(N^2) S=O(N)
-#sort array, one for loop and while loop with two pointer
+#sort array, one main for-loop and a sub while-loop with two pointer
 def threeNumberSum(array, targetSum):
 	array.sort()
 	result = []
@@ -48,3 +49,8 @@ def threeNumberSum(array, targetSum):
 				#currentSum is less then target, we need increase the sum, move left pointer 1 step right
 				left = left +1
 	return result
+
+
+print("input array:",array)
+print("input targetSum:",targetSum)
+print("output:",threeNumberSum(array,targetSum))
