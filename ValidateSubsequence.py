@@ -17,7 +17,7 @@ subsequences of the array.
 
 
 Sample Input
-array = [5, 1, 22, 25, 6, -1, 8, 10
+array = [5, 1, 22, 25, 6, -1, 8, 10]
 sequence = [1, 6, -1, 10]
 
 Sample Output
@@ -25,13 +25,19 @@ true
 
 '''
 
+array = array = [5, 1, 22, 25, 6, -1, 8, 10]
+sequence = [1, 6, -1, 10]
+
 
 def isValidSubsequence(array, sequence):
-    # Write your code here.
 	arrId = 0
 	seqId = 0
-    while arrId < len(array) and seqId < len(sequence):
+	while arrId < len(array) and seqId < len(sequence):
 		if array[arrId] == sequence[seqId]:
 			seqId = seqId +1
 		arrId = arrId +1
 	return seqId == len(sequence)
+
+print("input array:",array)
+print("input sequence:",sequence)
+print("output:",isValidSubsequence(array,sequence))
