@@ -59,6 +59,20 @@ def twoNumberSum3(array, targetSum):
 			left = left + 1
 	return []
 
+#best solution,can be used on three or four numbe sum
+#make an empty waiting set, check on number's match, if no match in the waiting set
+#then return two number, if not then add the current number in wating set
+#O(n) time, O(n)space
+def twoNumberSum4(array, targetSum):
+	tempList = {}
+	for currentNumber in array:
+		match = targetSum - currentNumber
+		if match in tempList:
+			return [currentNumber,match]
+		else:
+			tempList[currentNumber] = 1
+	return []
+
 print("input array:",array)
 print("input targetSum:",targetSum)
 print("output:",twoNumberSum3(array,targetSum))
