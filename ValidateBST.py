@@ -38,6 +38,9 @@ class BST:
 def validateBst(tree):
 	return validateBSTHelper(tree,float("-inf"),float("inf"))
 
+
+#O(n) time, because we need traverse all nodes
+#O(d) space, d is the depth of tree, because we are using recursive
 def validateBSThelper(tree,minValue,maxValue):
 	if tree is None:
 		return True
