@@ -48,3 +48,6 @@ def runLengthEncoding(string):
 	encodedString.append(string[len(string) - 1])
 	
 	return "".join(encodedString)
+	
+	
+	
