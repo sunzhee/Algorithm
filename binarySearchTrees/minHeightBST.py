@@ -72,9 +72,6 @@ def createMinHeightBst(array,bst,startIndex,endIndex):
 	
 
 
-def minHeightBst(array):
-	return createMinHeightBST(array,0,len(array) - 1)
-
 #O(n)time, O(n)space
 def createMinHeightBST(array,startIndex,endIndex):
 	#Done with construction, we reached the leaf
