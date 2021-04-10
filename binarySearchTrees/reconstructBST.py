@@ -38,8 +38,10 @@ Sample Output
 
 
 
-
-
+################### Solution 1 #######################################
+#O(n^2) time, 
+#O(h)space, because of the recursive stack, but actually it will cost O(n)space
+#in big O, we are ignor the return value spaces. 
 def reconstructBst(preOrderTraversalValues):
 	#when we meet leaf,leaf have only None sub nodes
 	if len(preOrderTraversalValues) == 0:
@@ -62,6 +64,48 @@ def reconstructBst(preOrderTraversalValues):
 	
 	#here we actually create the tree
 	return BST(currentValue,leftSubtree,rightSubtree)
+
+
+
+
+################### Solution 2 #######################################
+#O(n) time, traverse one time of the array
+#O(h) space, because of the recursive stack
+def reconstructBst(preOrderTraversalValues):
+	#0 means we begin from the 0 index of the preOrderTraversalValues array
+	#we need a globle value to keep tracking the array index, so create this class
+	treeInfo = TreeInfo(0)
+	return reconstructBSTFromRange(float("-inf"),float("inf"),preOrderTraversalValues,treeInfo)
+
+class TreeInfo:
+	def __init__(self,rootIndex):
+		self.rootIndex = rootIndex
+	
+def reconstructBSTFromRange(lowerBound,upperBound,preOrderTraversalValues,currentSubtreeInfo):
+	#when we finish traverse all the values in preOrderTraversalValues
+	#this is the finial exit
+	if currentSubtreeInfo.rootIndex == len(preOrderTraversalValues):
+		return None
+	
+	rootValue = preOrderTraversalValues[currentSubtreeInfo.rootIndex]
+	#check if next value is valid in range
+	#if not, then means current subtree root has no child, return None
+	if rootValue < lowerBound or rootValue >= upperBound:
+		return None
+	
+	#if the rootValue is in range, we can move to the next index, and construct the subtree
+	currentSubtreeInfo.rootIndex += 1
+	leftSubtree = reconstructBSTFromRange(lowerBound,rootValue,preOrderTraversalValues,currentSubtreeInfo)
+	rightSubtree = reconstructBSTFromRange(rootValue,upperBound,preOrderTraversalValues,currentSubtreeInfo)
+	
+	#construct the subtree and return to parent node
+	return BST(rootValue,leftSubtree,rightSubtree)
+
+
+
+
+
+
 
 
 
