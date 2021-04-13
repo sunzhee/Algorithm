@@ -65,7 +65,7 @@ root.right.left = BST(6)
 root.right.right = BST(8)
 
 nodeOne = root
-nodeTwo = root.left	
+nodeTwo = root.left
 nodeThree = root.left.right.left
 
 
@@ -113,7 +113,7 @@ def isDescendant(node,target):
 	return isDescendant(node.left,target) if target.value < node.value else isDescendant(node.right,target)
 
 
-print("input:",nodeOne.value, nodeTwo.value, nodeThree.value)
+print("nodeOne=",nodeOne.value,"\nnodeTwo=",nodeTwo.value,"\nnodeThree=",nodeThree.value)
 print("output:",validateThreeNodes(nodeOne, nodeTwo, nodeThree))
 
 
