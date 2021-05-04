@@ -41,15 +41,19 @@ array1 =[
 
 def findIslandInMatrix(array):
 	islands = []
-	maxRow = len(array[0])
-	maxColumn = len(array)
+	maxRow = len(array)
+	maxColumn = len(array[0])
 	#checkQueue = [[0,0]]
 	for row in range(0,maxRow):
 		for column in range(0,maxColumn):
 		#row,col = checkQueue.pop()
 			print(row,column)
-			callDFS(array,islands,row,column)
-	return islands
+			if array[row][column] != 1:
+				continue
+			#callDFS(array,islands,row,column)
+			array[row][column] = 2
+
+	return array
 
 def callDFS(array,islands,startRow,startColumn):
 	if array[startRow][startColumn] == 0:
@@ -68,7 +72,10 @@ def callDFS(array,islands,startRow,startColumn):
 	return islands
 
 
-print(findIslandInMatrix(array1))
+array1 = findIslandInMatrix(array1)
+
+for rows in range(len(array1)):
+	print(array1[rows])
 
 
 
