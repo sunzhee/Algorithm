@@ -41,30 +41,35 @@ array1 =[
 
 def findIslandInMatrix(array):
 	islands = []
-	maxRow = len(array[0])
-	maxColumn = len(array)
+	maxRow = len(array)
+	maxColumn = len(array[0])
 	#checkQueue = [[0,0]]
 	for row in range(0,maxRow):
 		for column in range(0,maxColumn):
 		#row,col = checkQueue.pop()
-			print(row,column)
-			callDFS(array,islands,row,column)
+			print(maxRow,maxColumn,":",row,column)
+			retirveNeighborsDFS(array,islands,row,column)
 	return islands
 
-def callDFS(array,islands,startRow,startColumn):
-	if array[startRow][startColumn] == 0:
-		return
-	if array[startRow][startColumn] == 1:
-		islands.append([startRow,startColumn])
-		print(islands)
-		if startRow-1 >= 0:
-			callDFS(array,islands,startRow-1,startColumn)
-		if startRow+1 < len(array[0]):
-			callDFS(array,islands,startRow+1,startColumn)
-		if startColumn-1 >= 0:
-			callDFS(array,islands,startRow,startColumn-1)
-		if startColumn+1 < len(array):
-			callDFS(array,islands,startRow,startColumn+1)
+def retirveNeighborsDFS(array,islands,startRow,startColumn):
+	neighborsQueue = [(startRow,startColumn)]
+	while len(neighborsQueue) > 0:
+		row,column = neighborsQueue.pop()
+		#print(row,column)
+
+		if startRow-1 >= 0 and array[startRow-1][startColumn] == 1:
+			neighborsQueue.append((startRow-1,startColumn))
+		if startRow+1 < len(array) and array[startRow+1][startColumn] == 1:
+			neighborsQueue.append((startRow+1,startColumn))
+		if startColumn-1 >=0 and array[startRow][startColumn-1] == 1:
+			neighborsQueue.append((startRow,startColumn-1))
+		if startColumn+1 < len(array[0]) and array[startRow][startColumn+1] == 1:
+			neighborsQueue.append((startRow,startColumn+1))
+
+
+
+	
+
 	return islands
 
 
