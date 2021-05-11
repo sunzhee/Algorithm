@@ -33,6 +33,26 @@ Node B
 
 """
 
+{
+  "topManager": "A",
+  "reportOne": "E",
+  "reportTwo": "I",
+  "orgChart": {
+    "nodes": [
+      {"directReports": ["B", "C"], "id": "A", "name": "A"},
+      {"directReports": ["D", "E"], "id": "B", "name": "B"},
+      {"directReports": ["F", "G"], "id": "C", "name": "C"},
+      {"directReports": ["H", "I"], "id": "D", "name": "D"},
+      {"directReports": [], "id": "E", "name": "E"},
+      {"directReports": [], "id": "F", "name": "F"},
+      {"directReports": [], "id": "G", "name": "G"},
+      {"directReports": [], "id": "H", "name": "H"},
+      {"directReports": [], "id": "I", "name": "I"}
+    ]
+  }
+}
+
+
 def getLowestCommonManager(topManager, reportOne, reportTwo):
 	return getOrgInfo(topManager,reportOne,reportTwo).lowestCommonManager
 
