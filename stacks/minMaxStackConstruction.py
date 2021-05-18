@@ -43,6 +43,8 @@ peek(): 5
 # Feel free to add new properties and methods to the class.
 class MinMaxStack:
 	def __init__(self):
+		# 用建立的minMaxStack数组保存每一次push进来新数值之后的min max值，这样可以保证O(1)时间执行getMin() getMax()
+		# 注意在pop以后，minMaxStack也要pop掉一个
 		self.minMaxStack = []
 		self.stack = []
 		
