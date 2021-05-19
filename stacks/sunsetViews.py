@@ -53,3 +53,43 @@ Sample Output #2
 
 """
 
+# O(n) time ,O(n) space
+# 数组比较
+def sunsetViews(buildings, direction):
+	resultBuildings = []
+	
+	# 同时处理两个方向，如果是west则从左到右step +1，如果是east则从右到左，step -1
+	startIndex = 0 if direction == "WEST" else len(buildings) - 1
+	step = 1 if direction == "WEST" else -1
+	
+	currentHeight = 0
+	
+	while startIndex >= 0 and startIndex < len(buildings):
+		if buildings[startIndex] > currentHeight:
+			resultBuildings.append(startIndex)	
+		currentHeight = max(currentHeight,buildings[startIndex])
+		# 如果是顺序，则为+1，如果是逆序则为-1
+		startIndex += step	
+	# 输出结果要求顺序
+	if direction != "WEST":
+		resultBuildings = resultBuildings[::-1]
+			
+	return resultBuildings
+
+# O(n) time, O(n) space
+# 用stack，一个一个比较，小的pop掉
+def sunsetViews(buildings, direction):
+	resultBuildings = []
+	
+	loopIndex = 0 if direction == "EAST" else len(buildings) - 1
+	step = 1 if direction == "EAST" else -1
+	
+	while loopIndex >=0 and loopIndex < len(buildings):
+		while len(resultBuildings) > 0 and buildings[resultBuildings[-1]] <= buildings[loopIndex]:
+			resultBuildings.pop()
+		resultBuildings.append(loopIndex)
+		loopIndex += step
+	if direction != "EAST":
+		resultBuildings = resultBuildings[::-1]
+		
+	return resultBuildings
