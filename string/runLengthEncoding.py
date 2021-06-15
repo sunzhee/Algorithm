@@ -36,17 +36,20 @@ Sample Output
 
 def runLengthEncoding(string):
 	encodedString = []
-	currentCharPointer = 1
+	letterCounter = 1
+	# 一定要i和i-1比较
 	for i in range(1,len(string)):
-		if string[i] != string[i - 1] or currentCharPointer == 9:
-			encodedString.append(str(currentCharPointer))
-			encodedString.append(string[i - 1])
-			currentCharPointer = 0
-		currentCharPointer = currentCharPointer + 1
-	
-	encodedString.append(str(currentCharPointer))
-	encodedString.append(string[len(string) - 1])
-	
+		# 必须要把这两个条件合成一个，否则当正好等于9的时候，会输出9A,0A,这个edge case无法处理
+		if letterCounter == 9 or string[i-1] != string[i]:
+			encodedString.append(str(letterCounter))
+			encodedString.append(string[i-1])
+			letterCounter = 0
+
+		letterCounter += 1
+	# 处理最后一个字符
+	encodedString.append(str(letterCounter))
+	encodedString.append(string[-1])
+
 	return "".join(encodedString)
 	
 	
