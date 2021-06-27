@@ -38,6 +38,8 @@ def searchForRange(array, target):
 	alteredBinarySearch(array,target,0,len(array)-1,finialRange,False)
 	return finialRange
 
+	
+
 def alteredBinarySearch(array,target,left,right,finialRange,goLeft):
 	if left > right:
 		return
