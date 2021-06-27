@@ -87,6 +87,7 @@ class MinHeap:
 			directParentIndex = (currentIndex - 1) // 2
 		
 
+
 	# O(1) time， O(1) space
 	def peek(self):
 		return self.heap[0]
