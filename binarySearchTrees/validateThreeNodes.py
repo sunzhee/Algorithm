@@ -113,6 +113,8 @@ def isDescendant(node,target):
 	return isDescendant(node.left,target) if target.value < node.value else isDescendant(node.right,target)
 
 
+
+
 print("nodeOne=",nodeOne.value,"\nnodeTwo=",nodeTwo.value,"\nnodeThree=",nodeThree.value)
 print("output:",validateThreeNodes(nodeOne, nodeTwo, nodeThree))
 
