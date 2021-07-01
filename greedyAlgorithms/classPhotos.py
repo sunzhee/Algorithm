@@ -35,7 +35,7 @@ redShirtHeights = [5, 8, 1, 3, 4]
 blueShirtHeights = [6, 9, 2, 4, 5]
 
 
-#O(nlogn) time, O(1)space, n is the number of students
+# O(nlogn) time, O(1)space, n is the number of students
 def classPhotos(redShirtHeights, blueShirtHeights):
 	#sort as tallest in the first
 	redShirtHeights.sort(reverse = True)
