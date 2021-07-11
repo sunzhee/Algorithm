@@ -96,3 +96,6 @@ def validStartingCity(distances, fuel, mpg):
 			indexOfStartCity = cityIndex
 	
 	return indexOfStartCity
+
+
+

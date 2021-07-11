@@ -45,3 +45,5 @@ def isMonotonic(array):
 
 print("input array:",array)
 print("output:",isMonotonic(array))
+
+

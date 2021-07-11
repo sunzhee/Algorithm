@@ -38,4 +38,6 @@ def selectionSort(array):
 
 print("input:",array)
 print("output:",selectionSort(array))
+
+
 			

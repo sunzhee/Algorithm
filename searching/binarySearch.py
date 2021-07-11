@@ -22,6 +22,7 @@ Sample Output
 
 
 
+
 #O(logn) Time, O(1) Space
 def binarySearch(array, target):
 	leftPointer = 0
