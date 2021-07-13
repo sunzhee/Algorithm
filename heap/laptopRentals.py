@@ -60,3 +60,28 @@ def laptopRentals(times):
 			
 	return usedLaptop
 
+
+
+#######################
+
+import heapq as hq
+
+def laptopRentals(times):
+	if len(times) == 0:
+		return 0
+	
+	times.sort(key = lambda x: x[0])
+	timesWhenLaptopIsUsed = []
+	hq.heappush(timesWhenLaptopIsUsed,times[0])
+	#print(timesWhenLaptopIsUsed)
+	for index in range(1,len(times)):
+		currentInterval = times[index]
+
+		if timesWhenLaptopIsUsed[0][1] <= currentInterval[0]:
+			#print(timesWhenLaptopIsUsed[0])
+			#print(currentInterval[0])
+			hq.heappop(timesWhenLaptopIsUsed)
+
+		hq.heappush(timesWhenLaptopIsUsed,currentInterval)
+		print(timesWhenLaptopIsUsed)
+	return len(timesWhenLaptopIsUsed)
