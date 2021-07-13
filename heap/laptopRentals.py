@@ -72,16 +72,19 @@ def laptopRentals(times):
 	
 	times.sort(key = lambda x: x[0])
 	timesWhenLaptopIsUsed = []
-	hq.heappush(timesWhenLaptopIsUsed,times[0])
-	#print(timesWhenLaptopIsUsed)
+	# heapq 没有用第二个元素排序的功能，所以要建立一个数组元素，把第二个值放在第一位，然后数组值放在第二位
+	# 这样就可以按照我们需要的值进行堆排序了
+	# 原times[0] = [0,2]
+	# timesHeapElement = [2,[0,2]]
+	timesHeapElement = [times[0][1],times[0]]
+	hq.heappush(timesWhenLaptopIsUsed,timesHeapElement)
+	#print(timesHeapElement)
 	for index in range(1,len(times)):
 		currentInterval = times[index]
 
-		if timesWhenLaptopIsUsed[0][1] <= currentInterval[0]:
-			#print(timesWhenLaptopIsUsed[0])
-			#print(currentInterval[0])
+		if timesWhenLaptopIsUsed[0][0] <= currentInterval[0]:
 			hq.heappop(timesWhenLaptopIsUsed)
-
-		hq.heappush(timesWhenLaptopIsUsed,currentInterval)
-		print(timesWhenLaptopIsUsed)
+		
+		timesHeapElement = [times[index][1],times[index]]
+		hq.heappush(timesWhenLaptopIsUsed,timesHeapElement)
 	return len(timesWhenLaptopIsUsed)
