@@ -28,6 +28,7 @@ def moveElementToEnd(array, toMove):
 	i = 0
 	j = len(array) - 1
 	while i < j:
+		# 这里是edge情况，右边全都是toMove数字，需要循环移动右边指针，直到没有toMove为止。
 		while i < j and array[j] == toMove:
 			j = j - 1
 		if array[i] == toMove:
