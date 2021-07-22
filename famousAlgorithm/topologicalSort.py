@@ -30,6 +30,7 @@ Sample Output
 
 """
 
+
 def topologicalSort(jobs, deps):
 	jobGraph = createJobGraph(jobs,deps)
 	return getOrderedJobs(jobGraph)
@@ -86,7 +87,7 @@ class JobGraph:
 		if job not in self.graph:
 			self.addNode(job)
 		return self.graph[job]
-	
+
 class JobNode:
 	def __init__(self,job):
 		self.job = job

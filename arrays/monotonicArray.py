@@ -32,11 +32,11 @@ def isMonotonic(array):
 	isNonIncresing = True
 	isNonDecresing = True
 	for i in range(1,len(array)):
-		#if current number is greater than next number,
+		#if current number is greater than previous number,
 		#then, this is decreasing, so not a increasing and increase set to False
 		if (array[i] > array[i-1]):
 			isNonDecresing = False
-		#if current number is lesser than next number,
+		#if current number is lesser than previous number,
 		#then this is increasing, so not a decreasing and decrease set to False
 		if (array[i] < array[i-1]):
 			isNonIncresing = False
