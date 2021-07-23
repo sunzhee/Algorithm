@@ -1,9 +1,14 @@
 """
 merge multi pdf files to one
 
+If you have pip, PyPDF2 is on the Python Package Index, so you can install it with the following in your terminal/command prompt:
+
+pip install PyPDF2
+
+
 """
 
-import os
+import os 
 from PyPDF2 import PdfFileMerger
 
 target_path = '/Users/kwsy/Desktop'
