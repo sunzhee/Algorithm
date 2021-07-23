@@ -25,8 +25,8 @@ peek(): 2
 remove(): 2 [6, 7, 8, 24, 8, 24, 24, 391, 76, 56, 12, 41, 48]
 peek(): 6
 insert(87): - [6, 7, 8, 24, 8, 24, 24, 391, 76, 56, 12, 41, 48, 87]
-
 """
+
 
 # Do not edit the class below except for the buildHeap,
 # siftDown, siftUp, peek, remove, and insert methods.
