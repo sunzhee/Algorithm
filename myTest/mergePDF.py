@@ -12,7 +12,8 @@ import os
 from PyPDF2 import PdfFileMerger
 
 target_path = './'
-pdf_lst = [f for f in os.listdir(target_path) if f.endswith('.pdf')]
+#pdf_lst = [f for f in os.listdir(target_path) if f.endswith('.pdf')]
+pdf_lst = ['1.pdf','2.pdf','3.pdf']
 pdf_lst = [os.path.join(target_path, filename) for filename in pdf_lst]
 
 file_merger = PdfFileMerger()
