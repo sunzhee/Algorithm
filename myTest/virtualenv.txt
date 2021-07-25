@@ -1,0 +1,28 @@
+Python-virtualenv创建虚拟环境
+
+
+功能
+virtualenv可以创建一个python虚拟环境，这个环境独立于系统原有的环境
+---------------------------
+Installation
+$ sudo pip install virtualenv
+或者通过apt-get 安装
+$ sudo apt-get install virtualenv
+---------------------------
+Usage
+新建目录my_project ,在目录内执行命令
+$ virtualenv venv
+这样就会生成my_project/venv 目录，里面有独立的python模块等
+---------------------------
+激活虚拟环境
+$ source my_project/venv/bin/activate
+激活后提示符会发生变化，默认情况下虚拟环境中是安装了pip的，使用pip安装模块时pip会将模块安装到venv 下
+可以在虚拟环境下为所欲为 ，在虚拟环境中运行python程序与系统的python环境隔离，例如系统中装有requests 模块，而虚拟环境中没有安装requests ，那么在虚拟环境下尝试使用requests就会出现找不到模块的错误。
+---------------------------
+退出虚拟环境
+使用命令deactivate 可以直接退出虚拟环境
+---------------------------
+参数
+--python
+指明环境中python的版本，例如
+$ virtualenv venv --python=python3
