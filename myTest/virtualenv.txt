@@ -26,3 +26,4 @@ $ source my_project/venv/bin/activate
 --python
 指明环境中python的版本，例如
 $ virtualenv venv --python=python3
+
